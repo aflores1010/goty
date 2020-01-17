@@ -1,6 +1,6 @@
 export interface GameInterface {
-    id: string;
+    id?: string;
     name: string;
     votes: number;
-    url: string;
+    url?: string;
 }

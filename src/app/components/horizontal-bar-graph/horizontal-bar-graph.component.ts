@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnDestroy, OnInit, ɵConsole, Input } from '@angular/core';
 
 @Component({
   selector: 'app-horizontal-bar-graph',
@@ -7,24 +7,26 @@ import { Component, OnDestroy, OnInit, ɵConsole } from '@angular/core';
 })
 export class HorizontalBarGraphComponent implements OnDestroy {
 
-  results: any[] = [
-    {
-      "name": "Juego 1",
-      "value": 20
-    },
-    {
-      "name": "Juego 2",
-      "value": 10
-    },
-    {
-      "name": "Juego 3",
-      "value": 1
-    },
-    {
-      "name": "Juego 4",
-      "value": 55
-    }
-  ];
+  @Input() results = [];
+
+  // results: any[] = [
+  //   {
+  //     "name": "Juego 1",
+  //     "value": 20
+  //   },
+  //   {
+  //     "name": "Juego 2",
+  //     "value": 10
+  //   },
+  //   {
+  //     "name": "Juego 3",
+  //     "value": 1
+  //   },
+  //   {
+  //     "name": "Juego 4",
+  //     "value": 55
+  //   }
+  // ];
 
   // options
   showXAxis: boolean = true;
@@ -44,20 +46,21 @@ export class HorizontalBarGraphComponent implements OnDestroy {
   constructor() {
 
 
-    this.interval = setInterval( () => {
+    // this.interval = setInterval( () => {
 
-      const newResults = [...this.results];
+    //   const newResults = [...this.results];
 
-      console.log('hey');
-      for (let i in newResults) {
-        newResults[i].value = Math.round( Math.random() * 100);
-      }
-      this.results = newResults;
-    }, 1500 );
+    //   console.log('hey');
+    //   for (let i in newResults) {
+    //     newResults[i].value = Math.round( Math.random() * 100);
+    //   }
+    //   this.results = newResults;
+    // }, 1500 );
+    console.log(this.results);
   }
 
   ngOnDestroy() {
-    clearInterval(this.interval);
+    // clearInterval(this.interval);
   }
 
   onSelect(data): void {
