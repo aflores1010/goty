@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { GameInterface } from '../interfaces/game';
 import { of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -27,6 +27,16 @@ export class GameService {
 
       return of(this.games);
     }
+  }
+
+  vote(id: string) {
+    console.log('voting ', id);
+    return this.http.post(`${ environment.url}/api/getGoty/${id}`, {}).pipe(
+      catchError(err => {
+       console.log(err)
+       return of(err.error);
+      })
+    )
   }
 
 }
