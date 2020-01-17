@@ -5,6 +5,7 @@ import { ComponentsModule } from './components/components.module';
 import { GotyComponent } from './pages/goty/goty.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NgModule } from '@angular/core';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
